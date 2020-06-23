@@ -5,10 +5,38 @@ import {createStackNavigator} from '@react-navigation/stack'
 import Home from './src/home/Home';
 import Calculator from './src/calculator/index';
 import Browser from './src/browser/index';
-import ContactsHome from './src/contacts/home/index';
+import Contacts from './src/contacts/home/index';
 import ShowMe from './src/showMe/index'
 
 const Stack = createStackNavigator();
+                                            // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+                                            // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡝⢿⡇⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+                                            // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠈⠁⠈⢻⣿⣿⣿⣿⡿⢿⠿⣻⠿⠿⠿⣿⣿⣿⣿
+                                            // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠄⠄⠄⠄⠈⠛⠋⠉⠄⠄⣠⣶⠄⣶⣶⠨⣿⣿⣿
+                                            // ⣿⣯⡛⠛⠷⠌⠉⠛⠻⠿⠟⠄⠄⠄⢀⠄⢀⠄⣤⣾⡷⠘⣿⣇⣼⡏⢰⣿⣿⣿
+                                            // ⣿⣿⣿⣶⡄⠄⠄⠄⠄⠄⠄⠄⢘⠄⣦⡌⠂⢸⣿⣯⠄⠒⠈⣿⣿⣧⣌⡙⠛⣿
+                                            // ⣿⣿⣿⣭⠍⠄⠄⣠⣴⡀⠰⣾⡄⠃⢻⣿⣧⡀⠙⢿⣧⠠⠄⠘⣿⡍⠛⢿⡇⣼
+                                            // ⣿⠏⣁⣤⣾⣿⣧⠈⣿⣿⠄⠸⣿⡄⠘⣿⡎⢿⣄⠈⣿⣆⣤⣆⢹⡿⠆⢰⣴⣿
+                                            // ⣿⡈⣿⣿⡅⠄⠻⣷⡘⣿⣷⡀⠘⢿⡄⢹⣷⡾⠿⢧⠘⠿⠛⠋⣠⣴⣶⣿⣿⣿
+                                            // ⣷⣶⠘⣿⣷⠄⠄⢻⣧⠘⣿⣷⣀⣸⣷⠈⣿⠄⠄⠄⠄⠄⠄⠄⠹⣿⣿⣿⣿⣿
+                                            // ⣿⡿⣃⠙⣿⣇⢰⣶⣿⣧⠘⠿⠟⠋⠁⠄⠉⠄⠄⠄⠄⣿⣿⣶⣤⣝⡻⣿⣿⣿
+                                            // ⣿⣿⣿⣧⠸⣿⣿⣿⠿⣿⣤⠄⠄⢀⡄⠄⢀⠄⠄⠄⠄⢿⣿⣿⣿⣿⣿⣿⣿⣿
+                                            // ⣿⣿⣿⣿⣧⣉⣩⣤⣶⠈⢀⡀⠄⣼⣿⡄⣸⣆⣿⣶⣄⠘⣿⣿⣿⣿⣿⣿⣿⣿
+                                            // ⣿⣿⣿⣿⣿⣿⣿⣿⡿⢠⣿⣷⢰⣿⣿⣇⣿⣿⣿⣿⣿⣷⣽⣿⣿⣿⣿⣿⣿⣿
+                                            // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+          
+                  // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿                           ⠀⠀⠀⢀⣠⢖⣮⣟⣯⢿⣲⣶⣤⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   
+                  // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿                           ⠀⠀⡠⣣⢯⣻⣺⢾⣽⣻⣽⡾⣷⣿⢦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ 
+                  // ⣿⣿⣿⣿⣿⣿⣿⣿⡿⢋⣩⣭⣶⣶⣮⣭⡙⠿⣿⣿⣿⣿⣿⣿                           ⠀⢬⡫⣞⠕⢗⢽⣻⣞⣯⣷⣿⣻⣽⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀ 
+                  // ⣿⣿⣿⣿⣿⣿⠿⣋⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡙⢿⣿⣿⣿                           ⢨⢣⢯⡒⠀⢨⢳⣳⢿⣽⢾⠹⠹⢯⢿⡺⡄⠀⠀⠀⠀⠀⠀⠀⠀ 
+                  // ⣿⣿⣿⣿⣿⡃⠄⠹⡿⣿⣿⣿⣿⠟⠛⣿⣿⣿⣿⣷⡌⢿⣿⣿                           ⢰⢝⣵⡳⣕⡾⣽⣺⣯⢿⡇⠅⠡⠀⡂⠡⡑⡀⡀⠀⠀⠀⠀⠀⠀ 
+                  // ⣿⣿⣿⣿⣿⠐⣠⡶⣶⣲⡎⢻⣿⣤⣴⣾⣿⣿⣿⣿⣿⠸⣿⣿                           ⣗⢯⢾⣝⣗⣯⢷⣗⣿⢽⡣⠁⠨⠐⢀⠡⠐⡐⢔⢡⡐⢄⢤⣀⠀ 
+                  // ⣿⠟⣋⡥⡶⣞⡯⣟⣾⣺⢽⡧⣥⣭⣉⢻⣿⣿⣿⣿⣿⣆⢻⣿                           ⣞⡽⣽⣺⣳⢯⣟⡷⡯⡏⡂⠌⡀⢂⢐⠠⡡⡊⡦⡳⡺⡌⢪⢗⢿ 
+                  // ⡃⣾⢯⢿⢽⣫⡯⣷⣳⢯⡯⠯⠷⠻⠞⣼⣿⣿⣿⣿⣿⣿⡌⣿                           ⢞⣞⣵⣳⢽⣳⢯⣞⡯⠂⠂⠢⢂⢂⠢⡨⣢⠱⠨⠐⠌⠬⠘⠘⠊ 
+                  // ⣦⣍⡙⠫⠛⠕⣋⡓⠭⣡⢶⠗⣡⣶⡝⣿⣿⣿⣿⣿⣿⣿⣧⢹                           ⠀⢗⡵⡽⡽⣺⡽⡾⣝⢬⢀⢀⠀⡀⢂⠪⡫⣀⠀⠀⠀⠀⠀⠀⠀ 
+                  // ⣿⣿⣿⣿⣿⣿⣘⣛⣋⣡⣵⣾⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣿⢸                           ⠀⠀⠘⢝⣞⢽⣝⣯⢷⣑⢝⢜⢔⢔⢰⢰⢸⢰⡹⡤⡄⠀⠀⠀⠀ 
+                  // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣿⢸                           ⠀⠀⠀⠀⠈⠓⢗⡽⣝⢽⡲⣱⢱⡹⡸⡸⡸⣱⢳⣕⢝⣆⠀⠀⠀ 
+                  // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣿⢸                           ⠀⠀⠀⠀⠀⠀⠀⠈⠚⠵⢹⢪⠣⠃⠑⠱⠱⢵⢕⣝⡜⣞⠇ 
 
 export default function App() {
   return (
@@ -17,8 +45,7 @@ export default function App() {
         <Stack.Screen name= "Home" component={Home}/>
         <Stack.Screen name= "Calculadora" component={Calculator}/>
         <Stack.Screen name= "Navegador" component={Browser}/>
-        <Stack.Screen name= "Agenda Telefonica" component={ContactsHome}/>
-        <Stack.Screen name= "Adicionar Contato" component={AddContact}/>
+        <Stack.Screen name= "Agenda Telefonica" component={Contacts}/>
         <Stack.Screen name= "Me mostre no mapa" component={ShowMe}/>
       </Stack.Navigator>
     </NavigationContainer>

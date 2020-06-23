@@ -5,13 +5,40 @@ import { Container, Content, Form, Item, Input, Label, Button } from 'native-bas
 import {Alert}  from 'react-native'
 
 const db = new Database();
+
 export default class index extends Component {
     state={
+        contactId:0,
         name:'',
-        number:''
+        number:'',
+        loading:true
+    };
+
+    updateContact(){
+        db.updateContact(this.state.contactId,this.state.name,this.state.number).then(Alert.alert('Sucesso','Usuario atualizado'));
+        this.props.navigation.goBack();
+    };
+
+    getContact(){
+        const contactId = this.props.route.params.contact;
+        db.ContactById(contactId).then(data =>{
+            this.setState({
+                contactId:data.id,
+                name:data.name,
+                number:data.number
+            });
+        });
+        this.setState({loading:false});
+    };
+
+    componentDidMount(){
+        this.getContact();
     };
 
     render() {
+        if(this.state.loading==true){
+            return(<Text>Carregando</Text>);
+        };
         return (
             <Container>
                 <Content>
@@ -37,11 +64,9 @@ export default class index extends Component {
                                     Alert.alert('Erro','Número invalido')
                                 }
                                 else{
-                                    db.addContact(this.state.number,
-                                    this.state.name).then(Alert.alert('Sucesso','Usuario cadastrado'));
-                                    this.props.navigation.goBack();
+                                    this.updateContact();
                                 }}}>
-                        <Text style={{color:'white'}}>Adicionar número</Text>
+                        <Text style={{color:'white'}}>Alterar contato</Text>
                     </Button>
                 </Content>
             </Container>

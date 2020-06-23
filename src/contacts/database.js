@@ -65,6 +65,29 @@ export default class Database {
         }
       };
 
+      ContactById(id) {
+        console.log(id);
+        return new Promise((resolve) => {
+          this.initDB().then((db) => {
+            db.transaction((tx) => {
+              tx.executeSql('SELECT * FROM contacts WHERE id = ?', [id]).then(([tx,results]) => {
+                console.log(results);
+                if(results.rows.length > 0) {
+                  let row = results.rows.item(0);
+                  resolve(row);
+                }
+              });
+            }).then((result) => {
+              this.closeDatabase(db);
+            }).catch((err) => {
+              console.log(err);
+            });
+          }).catch((err) => {
+            console.log(err);
+          });
+        });  
+      }
+
       listContacts() {
         return new Promise((resolve) => {
           const contacts = [];
@@ -96,35 +119,14 @@ export default class Database {
         });  
       }
 
-      listLastId(){
-        return new Promise((resolve) => {
-            this.initDB().then((db) => {
-              db.transaction((tx) => {
-                tx.executeSql('SELECT max(id)').then(([tx, results]) => {
-                  resolve(results);
-                  console.log('------------------------')
-                  console.log(contact.name)
-                  console.log('------------------------')
-                });
-              }).then((result) => {
-                this.closeDatabase(db);
-              }).catch((err) => {
-                console.log(err);
-              });
-            }).catch((err) => {
-              console.log(err);
-            });
-          });  
-      }
-
-      addContact(contact) {
+      addContact(number,name) {
         return new Promise((resolve) => {
           this.initDB().then((db) => {
             db.transaction((tx) => {
-              tx.executeSql('INSERT INTO contacts VALUES (?, ?,?)', [contact.id,contact.name, contact.number]).then(([tx, results]) => {
+              tx.executeSql('INSERT INTO contacts (name, number) VALUES ( ?, ?)', [name, number]).then(([tx, results]) => {
                 resolve(results);
                 console.log('------------------------')
-                console.log(contact.name)
+                console.log(name)
                 console.log('------------------------')
               });
             }).then((result) => {
@@ -138,11 +140,11 @@ export default class Database {
         });  
       }
 
-      updateContact(id, contact) {
+      updateContact(id,name,number) {
         return new Promise((resolve) => {
           this.initDB().then((db) => {
             db.transaction((tx) => {
-              tx.executeSql('UPDATE contacts SET name = ?, number = ? WHERE id = ?', [contact.id, contact.name, contact.number, id]).then(([tx, results]) => {
+              tx.executeSql('UPDATE contacts SET name = ?, number = ? WHERE id = ?', [name, number, id]).then(([tx, results]) => {
                 resolve(results);
               });
             }).then((result) => {
@@ -160,7 +162,7 @@ export default class Database {
         return new Promise((resolve) => {
           this.initDB().then((db) => {
             db.transaction((tx) => {
-              tx.executeSql('DELETE FROM contact WHERE id = ?', [id]).then(([tx, results]) => {
+              tx.executeSql('DELETE FROM contacts WHERE id = ?', [id]).then(([tx, results]) => {
                 console.log(results);
                 resolve(results);
               });
