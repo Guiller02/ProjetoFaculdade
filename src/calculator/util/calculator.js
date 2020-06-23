@@ -52,6 +52,13 @@ export const initialState = {
       };
     }
   
+    if (operator === "%") {
+      return {
+        currentValue: previous * (current/100) ,
+        ...resetState
+      };
+    }
+
     return state;
   };
   
@@ -72,10 +79,6 @@ export const initialState = {
       case "posneg":
         return {
           currentValue: `${parseFloat(state.currentValue) * -1}`
-        };
-      case "percentage":
-        return {
-          currentValue: `${parseFloat(state.currentValue) * 0.01}`
         };
       default:
         return state;
