@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, Alert } from 'react-native';
+import { Text, Alert, StyleSheet } from 'react-native';
 import Database from '../database';
 import {Icon,Button,Container, Content, Right} from 'native-base';
 
@@ -39,7 +39,7 @@ export default class index extends Component {
 
     render() {
         if(this.state.loading===true){
-            return(<Text>Carregando</Text>)
+            return(<Text>Carregando (Volte para a página anterior)</Text>)
         }
         else{
             return (
@@ -47,7 +47,7 @@ export default class index extends Component {
                     <Content>
                     <Text> {this.state.name} </Text>
                     <Text style={{paddingBottom:50}}> {this.state.number} </Text>
-                        <Button iconRight style={{width:100, marginBottom:20}} 
+                        <Button iconRight style={styles.button} 
                             onPress={()=>{
                                 this.props.navigation.navigate('Alterar Contato',{
                                     contact: this.state.contactId
@@ -56,7 +56,7 @@ export default class index extends Component {
                             <Text style={{color:'white'}}>Alterar</Text>
                             <Icon name='arrow-forward' />
                         </Button>
-                        <Button iconRight style={{width:100}} onPress={()=>{
+                        <Button iconRight style={styles.button} onPress={()=>{
                             db.deleteContact(this.state.contactId);
                             Alert.alert('Sucesso!','Usuário deletado com sucesso!')
                             this.props.navigation.goBack();
@@ -70,3 +70,16 @@ export default class index extends Component {
         };
     };
 };
+
+const styles = StyleSheet.create({
+    button: {
+        width: 100,
+        flexDirection: 'row',
+        borderRadius: 10,
+        overflow: 'hidden',
+        alignItems: 'center',
+        marginTop: 1,
+        marginLeft: 5,
+        marginRight: 5
+    }
+})
