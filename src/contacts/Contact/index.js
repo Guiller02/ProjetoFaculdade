@@ -10,7 +10,7 @@ export default class index extends Component {
         name:'',
         number:'',
         loading:true
-    }
+    };
 
     componentDidMount(){
         const { navigation } = this.props;
@@ -67,7 +67,6 @@ export default class index extends Component {
                     </Content>
                 </Container>
             );
-        }
-        
+        };
     };
 };
