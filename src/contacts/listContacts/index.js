@@ -26,6 +26,7 @@ export default class index extends Component{
             this.setState({loading:true})
             this.getContacts()
         });
+        this.setState({loading:false})
     };
 
     componentWillUnmount() {
