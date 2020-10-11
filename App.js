@@ -39,6 +39,7 @@ const Stack = createStackNavigator();
                   // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢸⣿⣿⣿⣿⣿⣿⣿⢸                           ⠀⠀⠀⠀⠀⠀⠀⠈⠚⠵⢹⢪⠣⠃⠑⠱⠱⢵⢕⣝⡜⣞⠇ 
 
 export default function App() {
+// rotes
   return (
     <NavigationContainer>
       <Stack.Navigator>
