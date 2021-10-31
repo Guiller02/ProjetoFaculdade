@@ -6,3 +6,4 @@ Criado por Alessandro e Guilherme
 - Navegador
 - Contatos
 - GPS
+- Teste
